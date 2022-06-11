@@ -43,15 +43,24 @@ module.exports = {
       }
       throw new AuthenticationError("Not logged in");
     },
-    deleteLocation: async (parent, {locationId}, context) => {
-        if(context.user) {
-            const location = await Location.findOneAndDelete({_id: locationId});
-            if(!location) {
-                throw new UserInputError("Location could not be found");
-            }
-            
+    deleteLocation: async (parent, { locationId }, context) => {
+      if (context.user) {
+        try {
+          const location = await Location.findById(locationId);
+          if (!location) {
+            throw new UserInputError("Location could not be found");
+          }
+          if (context.user.username === location.username) {
+            await location.delete();
+            return "Post Deleted!";
+          } else {
+            throw new AuthenticationError("Not logged in");
+          }
+        } catch (error) {
+            throw new Error(error)
         }
-        throw new AuthenticationError("Not logged in");
-    }
+      }
+      throw new AuthenticationError("Not logged in");
+    },
   },
 };
