@@ -4,7 +4,6 @@ const {
   UserInputError,
 } = require("apollo-server-express");
 const { validateLocationInput } = require("../../util/validators");
-const { findOneAndDelete } = require("../../models/User");
 
 module.exports = {
   Mutation: {
@@ -57,7 +56,7 @@ module.exports = {
             throw new AuthenticationError("Not logged in");
           }
         } catch (error) {
-            throw new Error(error)
+          throw new Error(error);
         }
       }
       throw new AuthenticationError("Not logged in");
