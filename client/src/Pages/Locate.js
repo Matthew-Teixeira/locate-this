@@ -9,10 +9,9 @@ const Locate = () => {
   const nav = useNavigate();
   const userProfile = Auth.getProfile();
   const username = userProfile.data.username;
-  console.log(username);
 
   const [values, setValues] = useState({
-    username: "AppSolo",
+    username: username,
     name: "",
     description: "",
     long: 0,
@@ -39,7 +38,6 @@ const Locate = () => {
   const onChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
-  console.log(values);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -74,9 +72,14 @@ const Locate = () => {
   return (
     <>
       <div className="geolocate">
-        <button className="ui secondary button" onClick={getLocation}>Get Location</button>
+        <button className="ui secondary button" onClick={getLocation}>
+          Get Location
+        </button>
         <h1 className={lat ? "" : "hidden"}>Coordinates</h1>
-        <p className={!lat ? "geo-info" : "hidden"}>Click "Get Location" to populate form with your current location and fill in the rest!</p>
+        <p className={!lat ? "geo-info" : "hidden"}>
+          Click "Get Location" to populate form with your current location and
+          fill in the rest!
+        </p>
         {lat && <p>Latitude: {lat}</p>}
         {lng && <p>Longitude: {lng}</p>}
       </div>
@@ -110,7 +113,7 @@ const Locate = () => {
             label="Latitude"
             type="number"
             name="lat"
-            value={lat ? values.lat=lat : values.lat}
+            value={lat ? (values.lat = lat) : values.lat}
             onChange={onChange}
           />
 
@@ -118,7 +121,7 @@ const Locate = () => {
             label="Longitude"
             type="number"
             name="long"
-            value={lng ? values.long=lng : values.long}
+            value={lng ? (values.long = lng) : values.long}
             onChange={onChange}
           />
           <Button type="submit" color="olive" fluid>
