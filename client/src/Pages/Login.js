@@ -59,7 +59,7 @@ const Login = () => {
         />
 
         <Button type="submit" primary>
-          Register
+          Login
         </Button>
       </Form>
 
