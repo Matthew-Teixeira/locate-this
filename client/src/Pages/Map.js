@@ -5,14 +5,38 @@ import getCenter from "geolib/es/getCenter";
 
 import Pin from "../assets/images/pin.svg";
 
-const coords = [
-  { latitude: 35.4150158, longitude: -80.8071362 },
-  { latitude: 35.4148722, longitude: -80.8077347 },
-  { latitude: 35.41530043, longitude: -80.8062991 },
+const locations = [
+  {
+    name: "The Village",
+    description: "This place is ...",
+    lat: 35.4150158,
+    long: -80.8071362,
+  },
+  {
+    name: "Taco Bell",
+    description: "This place is ...",
+    lat: 35.4148722,
+    long: -80.8077347,
+  },
+  {
+    name: "Rhino Park",
+    description: "This place is ...",
+    lat: 35.41530043,
+    long: -80.8062991,
+  },
 ];
+
+const coords = locations.map((result) => ({
+  latitude: result.lat,
+  longitude: result.long,
+}));
 
 const Map = () => {
   const center = getCenter(coords);
+
+  const [selectedLocation, setSelectedLocation] = useState({});
+
+  console.log(selectedLocation);
 
   const [viewport, setViewport] = useState({
     width: "100%",
@@ -23,22 +47,42 @@ const Map = () => {
   });
 
   return (
-    <Maps
-      mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
-      mapboxAccessToken={MAP_TOKEN}
-      {...viewport}
-      onMove={(nextViewport) => setViewport(nextViewport)}
-    >
-      {coords.map((spot) => (
-        <Marker
-          longitude={spot.longitude}
-          latitude={spot.latitude}
-          anchor="bottom"
-        >
-          <img className="pin" src={Pin} />
-        </Marker>
-      ))}
-    </Maps>
+    <div className="map">
+      <Maps
+        mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
+        mapboxAccessToken={MAP_TOKEN}
+        {...viewport}
+        onMove={(nextViewport) => setViewport(nextViewport)}
+      >
+        {locations.map((spot) => (
+          <div key={spot.lat}>
+            <Marker
+              longitude={spot.long}
+              latitude={spot.lat}
+              anchor="bottom"
+            >
+              <img
+                className="pin"
+                src={Pin}
+                alt="push-pin"
+                aria-label="push-pin"
+                onClick={() => setSelectedLocation(spot)}
+              />
+            </Marker>
+            {selectedLocation.lat === spot.lat ? (
+              <Popup 
+              longitude={selectedLocation.long}
+              latitude={selectedLocation.lat}
+                onClose={() => setSelectedLocation({})}
+                closeOnClick={true}
+              >
+                {spot.name}
+              </Popup>
+            ) : false}
+          </div>
+        ))}
+      </Maps>
+    </div>
   );
 };
 

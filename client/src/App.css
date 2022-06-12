@@ -7,7 +7,12 @@ body{
 }
 
 .container {
+    height: 100%;
+}
+
+.map{
     height: calc(100% - 65.5px);
+    padding-bottom: 2rem;
 }
 
 .pin {
