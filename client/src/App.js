@@ -9,6 +9,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Map from "./Pages/Map";
+import Locate from "./Pages/Locate";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/map" element={<Map />} />
+          <Route exact path="/locate" element={<Locate />} />
         </Routes>
       </Container>
     </Router>

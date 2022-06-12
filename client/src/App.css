@@ -20,3 +20,42 @@ body{
     width: 20px;
     filter: invert(8%) sepia(95%) saturate(7492%) hue-rotate(8deg) brightness(90%) contrast(110%);
 }
+
+.form-container {
+    min-width: 300px;
+    max-width: 450px;
+    margin: 1rem auto 0 auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    padding: .5rem;
+}
+
+.geolocate{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    min-height: 178px;
+}
+
+.geolocate, p {
+    margin-top: .25rem;
+}
+
+.geolocate, h1{
+    margin-bottom: .25rem;
+}
+
+.geo-info {
+    text-align: center;
+    padding-top: 2.5rem;
+}
+
+.hidden{
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
