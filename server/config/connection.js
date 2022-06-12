@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      "mongodb://localhost:27017/locate-it",
+      "mongodb+srv://Matt-T:BAIley1234@cluster0.ugd5d.mongodb.net/locate-this?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
