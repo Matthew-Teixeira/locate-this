@@ -4,6 +4,7 @@ const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const path = require("path");
 const { authMiddleware } = require("./util/auth");
+var cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
 
@@ -15,6 +16,7 @@ const server = new ApolloServer({
 
 const app = express();
 
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
