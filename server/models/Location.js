@@ -4,6 +4,7 @@ const locationSchema = new Schema({
   name: {
     type: String,
     required: true,
+    unique: false
   },
   description: {
     type: String,
