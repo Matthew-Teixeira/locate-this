@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { secret } = require("../config/secret");
+const  secret = "mississippi-please"
 const {
     AuthenticationError,
     UserInputError,
