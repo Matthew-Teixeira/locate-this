@@ -17,10 +17,10 @@ const Login = () => {
     update(proxy, result) {
       Auth.login(result.data.login.token);
     },
-    onError(err) {
-      setErrors(err.graphQLErrors[0].extensions.errors);
-      console.log(err.graphQLErrors[0].extensions.errors);
-    },
+    // onError(err) {
+    //   setErrors(err.graphQLErrors[0].extensions.errors);
+    //   console.log(err.graphQLErrors[0].extensions.errors);
+    // },
     variables: values,
   });
 

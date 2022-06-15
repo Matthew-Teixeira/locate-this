@@ -18,8 +18,8 @@ const Map = ({ locations }) => {
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100%",
-    longitude: center.longitude,
-    latitude: center.latitude,
+    longitude: locations.length === 1 ? locations[0].long : center.longitude,
+    latitude: locations.length === 1 ? locations[0].lat : center.latitude,
     zoom: 10,
   });
 

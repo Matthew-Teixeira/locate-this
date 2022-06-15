@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, GET_USERS } from "../utils/queries";
 import Maps from "../Components/Map.jsx";
@@ -11,13 +11,15 @@ const Map = () => {
     variables: { id: userProfile.data._id },
   });
 
+  useEffect(() => {}, [data, loading]);
+
   let locations;
 
   if (loading) {
     return <div>Loading...</div>;
   }
   if (data) {
-    if (data.getUser.locations.length > 1) {
+    if (data.getUser.locations.length >= 1) {
       locations = data.getUser.locations;
       return <Maps locations={locations} />;
     } else {
@@ -27,3 +29,7 @@ const Map = () => {
 };
 
 export default Map;
+
+// const { loading, data } = useQuery(QUERY_USER, {
+//   variables: { id: userProfile.data._id },
+// });
