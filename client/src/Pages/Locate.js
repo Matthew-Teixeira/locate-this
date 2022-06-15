@@ -20,7 +20,7 @@ const Locate = () => {
 
   const [addLocation, { loading }] = useMutation(ADD_LOCATION, {
     update(proxy, result) {
-      window.location.assign('/map');
+      nav("/map");
     },
     onError(err) {
       console.log(err);
