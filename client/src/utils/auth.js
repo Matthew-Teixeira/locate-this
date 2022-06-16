@@ -36,6 +36,13 @@ class AuthService {
   
     // set token to localStorage and reload page to homepage
     login(idToken) {
+      if(!this.loggedIn()){
+        try {
+          localStorage.removeItem('id_token');
+        } catch (error) {
+          console.log(error);
+        }
+      }
       // Saves user token to localStorage
       localStorage.setItem('id_token', idToken);
   
