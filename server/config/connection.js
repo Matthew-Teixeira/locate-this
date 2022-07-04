@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const dotenv = require("dotenv").config();
+
 
 mongoose
-  .connect(process.env.MONGODB_URI || MONGODB_URI, {
+  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/truck-yeah", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
