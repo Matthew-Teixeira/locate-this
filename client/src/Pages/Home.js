@@ -3,7 +3,7 @@ import { Container, Header } from "semantic-ui-react";
 import demoMap from "../assets/images/demoMap.png"
 const Home = () => {
   return (
-    <main className="bg-[#123698]">
+    <main>
       <Container text>
     <Header as='h2'>Locate-This</Header>
     <p>
