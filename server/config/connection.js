@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/truck-yeah", {
+  .connect("mongodb+srv://Matt-T:BAIley1234@cluster0.ugd5d.mongodb.net/locate-this?retryWrites=true&w=majority" || "mongodb://127.0.0.1:27017/truck-yeah", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
