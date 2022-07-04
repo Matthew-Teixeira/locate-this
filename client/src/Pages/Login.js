@@ -13,15 +13,8 @@ const Login = () => {
     confirmPassword: "",
   });
 
-  let token = Auth.getToken();
-  let tokenStatus = Auth.isTokenExpired(token);
-
   const [registerUser, { loading }] = useMutation(LOGIN_USER, {
     update(proxy, result) {
-      if(!tokenStatus) {
-        localStorage.removeItem('id_token');
-        Auth.login(result.data.login.token);
-      }
       Auth.login(result.data.login.token);
     },
     // onError(err) {

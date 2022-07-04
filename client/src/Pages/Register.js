@@ -42,7 +42,7 @@ const Register = (props) => {
           type="text"
           placeholder="username"
           name="username"
-          error={errors.username ? true : false}
+          //error={errors.username ? true : false}
           value={values.username}
           onChange={onChange}
         />

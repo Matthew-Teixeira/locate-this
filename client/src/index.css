@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body{
     height: 100vh;
 }
@@ -58,4 +62,12 @@ body{
 
 .center {
     text-align: center;
+}
+
+.demo-map {
+    display: block;
+    margin: 0 auto;
+    height: 350px;
+    padding-bottom: 2rem;
+    border-radius: 1rem;
 }
