@@ -7,10 +7,8 @@ import Auth from "../utils/auth";
 const Login = () => {
   const [errors, setErrors] = useState({});
   const [values, setValues] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    email: "demo@gmail.com",
+    password: "123456",
   });
 
   const [registerUser, { loading }] = useMutation(LOGIN_USER, {
